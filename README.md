@@ -4,7 +4,8 @@ A [Ghidra](https://ghidra-sre.org/) extension that loads Sega/Stern Whitestar ga
 and builds a complete, navigable memory map — including banked ROM overlays, I/O register
 labels, and interrupt vector stubs.
 
-CPU rom only, loading of DMD and sound rom is not supported yet.
+> [!NOTE]
+> CPU rom only, loading of DMD and sound rom is not supported yet.
 
 ---
 
