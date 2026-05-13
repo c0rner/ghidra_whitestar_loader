@@ -31,7 +31,9 @@ import ghidra.framework.model.DomainObject;
 import ghidra.program.flatapi.FlatProgramAPI;
 import ghidra.program.model.address.Address;
 import ghidra.program.model.data.ByteDataType;
+import ghidra.program.model.data.DataType;
 import ghidra.program.model.data.Pointer16DataType;
+import ghidra.program.model.data.WordDataType;
 import ghidra.program.model.lang.LanguageCompilerSpecPair;
 import ghidra.program.model.listing.Program;
 import ghidra.program.model.mem.MemoryBlock;
@@ -80,11 +82,11 @@ public class WhitestarLoader extends AbstractLibrarySupportLoader {
 	private static final long SYSTEM_ROM_START  = 0x8000L;
 	private static final long SYSTEM_ROM_SIZE   = 0x8000L; // 32 KiB
 
-	// ── 6809 interrupt vector table	// ── Checksum fields in the system ROM ────────────────────────────
+	// ── Checksum fields in the system ROM ───────────────────────────────────
 
 	private static final long ADDR_CHECKSUM_DELTA = 0xFFEEL;
 
-le (0xFFF0–0xFFFE) ───────────────────────────
+	// ── 6809 interrupt vector table (0xFFF0–0xFFFE) ───────────────────────────────
 
 	/** Each entry: { cpu_address, label_name } */
 	private static final Object[][] VECTORS = {
@@ -229,6 +231,9 @@ le (0xFFF0–0xFFFE) ───────────────────�
 
 			monitor.setMessage("Applying I/O register labels…");
 			applyIoLabels(api, log);
+
+			monitor.setMessage("Applying RAM labels…");
+			applyRamLabels(api, log);
 
 			monitor.setMessage("Applying interrupt vector labels…");
 			applyVectorLabels(api, log);
