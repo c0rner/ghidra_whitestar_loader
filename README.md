@@ -123,8 +123,8 @@ loading, the Ghidra message log reports the ROM size and page layout.
 
 | Requirement | Version |
 |---|---|
-| [Ghidra](https://ghidra-sre.org/) | **12.0.4** |
-| Java | 21 (bundled with Ghidra) |
+| [Ghidra](https://ghidra-sre.org/) | **12.2** |
+| JDK | 25 |
 
 ---
 
@@ -135,9 +135,9 @@ Use the Gradle wrapper bundled with Ghidra.
 **1. Compile and package:**
 
 ```bash
-env GHIDRA_INSTALL_DIR=~/ghidra_12.0.4_PUBLIC \
-  ~/ghidra_12.0.4_PUBLIC/support/gradle/gradlew build
-# → dist/ghidra_12.0.4_PUBLIC_<date>_ghidra_whitestar_loader.zip
+env GHIDRA_INSTALL_DIR=~/ghidra_12.2_PUBLIC \
+  ~/ghidra_12.2_PUBLIC/support/gradle/gradlew buildExtension
+# → dist/ghidra_12.2_PUBLIC_<date>_ghidra_whitestar_loader.zip
 ```
 
 **2. Install in Ghidra:**
