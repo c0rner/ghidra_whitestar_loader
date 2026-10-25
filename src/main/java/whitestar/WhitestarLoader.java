@@ -256,7 +256,7 @@ public class WhitestarLoader extends AbstractLibrarySupportLoader {
 	public List<Option> getDefaultOptions(ByteProvider provider, LoadSpec loadSpec,
 			DomainObject domainObject, boolean isLoadIntoProgram, boolean mirrorFsLayout) {
 		List<Option> list = new ArrayList<>();
-		list.add(new Option(OPT_CREATE_OVERLAYS, Boolean.TRUE));
+		list.add(Option.newBoolean(OPT_CREATE_OVERLAYS).value(true).build());
 		return list;
 	}
 
